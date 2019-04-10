@@ -1,7 +1,6 @@
 import React from "react";
 import ModelList from "./Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
-import { fade } from "@material-ui/core/styles/colorManipulator";
 import { styles } from "./App.styles";
 
 const App = ({
