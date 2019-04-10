@@ -2,6 +2,7 @@ import React from "react";
 import ModelList from "./Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
 import { styles } from "./App.styles";
+import MainWrapper from "./Wrappers/MainWrapper";
 
 const App = ({
   medications,
@@ -24,30 +25,32 @@ const App = ({
   modelName,
   ...rest
 }) => {
-  console.log("medications", medications, rest);
   return (
-    <ModelList
-      modelArray={medications}
-      modelKey={"title"}
-      modelName={modelName}
-      columns={["title", "status"]}
-      createModel={medications_createModel}
-      updateModel={medications_updateModel}
-      getModel={medications_getModel}
-      deleteModel={medications_deleteModel}
-      searchModel={medications_searchModel}
-      uploadMedia={medications_media_upload}
-      uploadGallery={medications_gallery_upload}
-      deleteMedia={medications_media_delete}
-      location={location}
-      match={match}
-      history={history}
-      classes={classes}
-      form={form}
-      notifications={notifications}
-      saveNotification={saveNotification}
-      removeNotification={removeNotification}
-    />
+    <MainWrapper match={match} history={history} location={location}>
+      <ModelList
+        modelArray={medications}
+        modelKey={"title"}
+        modelName={modelName}
+        columns={["title", "status"]}
+        createModel={medications_createModel}
+        updateModel={medications_updateModel}
+        getModel={medications_getModel}
+        deleteModel={medications_deleteModel}
+        searchModel={medications_searchModel}
+        uploadMedia={medications_media_upload}
+        uploadGallery={medications_gallery_upload}
+        deleteMedia={medications_media_delete}
+        location={location}
+        match={match}
+        history={history}
+        classes={classes}
+        form={form}
+        notifications={notifications}
+        saveNotification={saveNotification}
+        removeNotification={removeNotification}
+        hideAddButton
+      />
+    </MainWrapper>
   );
 };
 

@@ -62,6 +62,7 @@ const ModelList = enhance(
     setOpen,
     deletedModel,
     setDeletedModel,
+    hideAddButton,
     ...rest
   }) => {
     let models = modelArray;
@@ -223,9 +224,13 @@ const ModelList = enhance(
                 <Paper className={classes.listContainer}>
                   <List>{modelsView}</List>
                 </Paper>
-                <FloatingAddButton
-                  onClick={event => history.push(`${match.path}/add`)}
-                />
+                {hideAddButton ? (
+                  ""
+                ) : (
+                  <FloatingAddButton
+                    onClick={event => history.push(`${match.path}/add`)}
+                  />
+                )}
               </React.Fragment>
             );
           }}
