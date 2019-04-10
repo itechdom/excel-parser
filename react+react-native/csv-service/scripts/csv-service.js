@@ -1,11 +1,11 @@
 const fs = require("fs");
 const parse = require("csv-parse");
 let data = fs.readFileSync("./data.csv");
-const assert = require("assert");
 
 const output = [];
 let row = 0;
 let obj = {};
+
 parse(data, {
   trim: true,
   skip_empty_lines: true
@@ -28,7 +28,6 @@ parse(data, {
       output.push(record);
     }
   })
-  // When we are done, test that the parsed output matched what expected
   .on("end", function() {
-    fs.writeFileSync("./output", JSON.stringify(obj));
+    fs.writeFileSync("./medications.js", `export const data = ${JSON.stringify(obj)} ;`);
   });
