@@ -1,2 +1,14 @@
-"1","2","3"
-"a","b","c"
+Medication,Initial Dose Range,Usual Titrate,Titration Info,Max Dose (rec/obs),Study Dosage,Study 2,Trials/Adverse SE/CI,,Formulation
+D-amphetamine (Dexedrine),2.5(p) - 5mg(a),,2.5mg - 5mg q biweekly,40mg,,,,C,Tab: 5mg
+D-amphetamine SR (Dexedrine Spansules),,,,,,,,,
+Adderall XR,5-10mg [A],5-10mg q month,5-10mg q week,"30mg/ day, 50mg",22.4(6.9)[a;G83],,,S,"Capsule: 5 MG, 10 MG, 15 MG, 20 MG, 25 MG, 30 MG"
+Lisdexamphetamine (Vyvanse),30mg,10-20mg q 2 wks,10-20mg q week,"70mg, 80mg",,,,S,"Chewable Tab/Capsule: 10 MG, 20 MG, 30 MG, 40 MG, 50 MG, 60 MG, 70 MG"
+Dexmethylphenidate (Focalin),2.5mg,,2.5-5mg q week,20mg,18.14mg,,,,"Oral Tablet: 2.5 MG, 5 MG, 10 MG"
+Focalin XR,5mg,5-10mg q 2-4 wks,5mg q week,"30mg, 40mg",,,,S,"Oral Capsule, Extended Release: 5 MG, 10 MG, 15 MG, 20 MG, 25 MG, 30 MG, 35 MG, 40 MG"
+Adderall IR,5mg - 10mg [A],,2.5mg q week,40mg /day,12.5 (c;G84),,,S,"Tablet: 5 MG, 7.5 MG, 10 MG, 12.5 MG, 15 MG, 20 MG, 30 MG"
+Methylphenidate IR,2.5 -5mg,,5-10mg q week,60mg TID (<50kg),32.14 mg (GF),100mg (>50kg),,C,"Tablets : 5, 10, 20 ;; Chewable: 2.5, 5, 10 ;; Liquid: 5mg, 10mg"
+Methylphenidate XR (Concerta),18mg,18 q 2-4 wks,18mg q week,"54mg (<50kg), 90mg",44mg[c],108mg (>50kg),72mg (c); 108mg (a),,"Concerta capsules: 18 mg, 27 mg, 36 mg, 54 mg"
+Methylphenidate SR (Metadate CD),20mg qd,10-20 q2-4 wks,10-20mg q week,60mg (<50kg),60mg,100mg (>50kg),Dec Abs w/ food.,S,
+Quillavant XR,20mg qd,,10-20mg q week,,,,,,
+Ritalin LA,10mg qd,,10-20mg q week,60mg,,,,,"Capsule: 10 mg, 20 mg, 30 mg, 40 mg, 60 mg [DSC]"
+Methylphenidate Transdermal; Daytrana,10mg,Next size q 2-4 wks,Next size q week,,,,"Hip. Place 2 hrs before, Remove 3 prior to sleep",,"Patch: 10, 15, 20, 30 mg"

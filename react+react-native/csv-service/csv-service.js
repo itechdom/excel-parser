@@ -1,7 +1,18 @@
 import { observer } from "mobx-react";
 import { observable, action, runInAction, toJS } from "mobx";
 import React from "react";
-import axios from "axios";
+import { data } from "../../medications";
+
+const axios = {
+  get: (url, options) => {
+    return new Promise((resolve, reject) => {
+      return resolve({ data });
+    });
+  },
+  post: (url, options) => {},
+  put: (url, options) => {},
+  delete: (url, options) => {}
+};
 
 //export store
 export class csvDomainStore {
@@ -17,7 +28,7 @@ export class csvDomainStore {
     if (offlineStorage) {
       this.offlineStorage = offlineStorage;
     }
-    this.SERVER = SERVER;
+    this.SERVER = "local";
   }
   @action
   forceUpdate(modelName) {
@@ -31,28 +42,19 @@ export class csvDomainStore {
     if (this.mapStore.get(modelName) && !refresh) {
       return;
     }
-    return this.offlineStorage
-      .getItem("jwtToken")
-      .then(token => {
-        return axios
-          .get(`${this.SERVER.host}:${this.SERVER.port}/${modelName}`, {
-            params: { token, query }
-          })
-          .then(res => {
-            runInAction(() => {
-              if (transform) {
-                let transformedModel = transform(res.data);
-                return this.mapStore.set(modelName, transformedModel);
-              }
-              this.mapStore.set(modelName, res.data);
-            });
-          })
-          .catch(err => {
-            this.setError(modelName, err);
-          });
+    return axios
+      .get(`${this.SERVER.host}:${this.SERVER.port}/${modelName}`)
+      .then(res => {
+        runInAction(() => {
+          if (transform) {
+            let transformedModel = transform(res.data);
+            return this.mapStore.set(modelName, transformedModel);
+          }
+          this.mapStore.set(modelName, res.data);
+        });
       })
       .catch(err => {
-        return this.setError(modelName, err);
+        this.setError(modelName, err);
       });
   }
   @action

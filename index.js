@@ -3,7 +3,7 @@ import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
 import Store from "./App/Store/Store";
 
-import { csvDomainStore } from "./react+react-native";
+import { csvDomainStore, CSV } from "./react+react-native";
 let rootStore = new Store({
   csvDomainStore
 });
@@ -16,12 +16,17 @@ ReactDOM.render(
         path={`/`}
         render={({ match, history, location }) => {
           return (
-            <App
-              match={match}
-              history={history}
-              location={location}
-              rootStore={rootStore}
-            />
+            <CSV
+              csvDomainStore={rootStore.csvDomainStore}
+              modelName="medications"
+            >
+              <App
+                match={match}
+                history={history}
+                location={location}
+                rootStore={rootStore}
+              />
+            </CSV>
           );
         }}
       />

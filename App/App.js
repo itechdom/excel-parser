@@ -21,8 +21,10 @@ const App = ({
   notifications,
   saveNotification,
   removeNotification,
-  modelName
+  modelName,
+  ...rest
 }) => {
+  console.log("medications", medications, rest);
   return (
     <ModelList
       modelArray={medications}
