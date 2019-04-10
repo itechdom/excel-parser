@@ -1,15 +1,10 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  withRouter
-} from "react-router-dom";
-import { csvDomainStore, notificationDomainStore } from "./react+react-native";
+import { HashRouter as Router, Route } from "react-router-dom";
+import Store from "./App/Store/Store";
+
+import { csvDomainStore } from "./react+react-native";
 let rootStore = new Store({
-  notificationDomainStore,
   csvDomainStore
 });
 import App from "./App/App.js";
@@ -17,7 +12,12 @@ import App from "./App/App.js";
 ReactDOM.render(
   <div>
     <Router>
-      <App rootStore={rootStore} />
+      <Route
+        path={`/`}
+        render={({ match }) => {
+          return <App match={match} rootStore={rootStore} />;
+        }}
+      />
     </Router>
   </div>,
   document.getElementById("app")

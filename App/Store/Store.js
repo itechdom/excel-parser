@@ -1,5 +1,4 @@
 //add localStorage
-import { SERVER } from "../../config";
 import queryString from "query-string";
 
 let offlineStorage = {
@@ -22,15 +21,7 @@ let offlineStorage = {
 };
 
 export default class RootStore {
-  constructor({
-    notificationDomainStore,
-    csvDomainStore
-  }) {
-    this.notificationDomainStore = new notificationDomainStore(
-      this,
-      offlineStorage,
-      SERVER
-    );
-    this.csvDomainStore = new csvDomainStore(this,offlineStorage,SERVER);
+  constructor({ csvDomainStore }) {
+    this.csvDomainStore = new csvDomainStore(this, offlineStorage);
   }
 }

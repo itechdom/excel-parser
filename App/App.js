@@ -3,13 +3,6 @@ import ModelList from "./Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
 import { fade } from "@material-ui/core/styles/colorManipulator";
 import { styles } from "./App.styles";
-import {
-  HashRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-  withRouter
-} from "react-router-dom";
 
 const App = ({
   medications,
