@@ -24,7 +24,7 @@ export const styles = theme => ({
   },
   appBarShift: {
     marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
+    // width: `calc(100% - ${drawerWidth}px)`,
     transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen
@@ -68,7 +68,10 @@ export const styles = theme => ({
   content: {
     flexGrow: 1,
     height: "100vh",
-    overflow: "auto"
+    overflow: "auto",
+    [theme.breakpoints.up("md")]: {
+      padding: "1em 4em"
+    }
   },
   chartContainer: {
     marginLeft: -22

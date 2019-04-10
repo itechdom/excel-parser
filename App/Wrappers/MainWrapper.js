@@ -113,32 +113,8 @@ class MainWrapper extends React.Component {
                   noWrap
                   className={classes.title}
                 >
-                  Medications
+                  Psych Med
                 </Typography>
-                <Autocomplete
-                  placeholder="Search…"
-                  isMultiple={true}
-                  onSelect={suggestion => {
-                    history.push(
-                      `/${suggestion.resource}/view/${suggestion._id}`
-                    );
-                  }}
-                  loadSuggestions={text => {
-                    let searchText = `${text}`;
-                    let query = {
-                      $or: [
-                        { title: { $regex: searchText } },
-                        { name: { $regex: searchText } }
-                      ]
-                    };
-                    let promises = searchModels(modelNames, query);
-                    return new Promise((resolve, reject) => {
-                      Promise.all(promises).then(res => {
-                        resolve(res);
-                      });
-                    });
-                  }}
-                />
                 {auth && (
                   <div>
                     <Tooltip title={(user && user.name) || ""}>
@@ -179,7 +155,7 @@ class MainWrapper extends React.Component {
                 )}
               </Toolbar>
             </AppBar>
-            <Drawer
+            {/* <Drawer
               variant="permanent"
               classes={{
                 paper: classNames(
@@ -195,7 +171,7 @@ class MainWrapper extends React.Component {
                 </IconButton>
               </div>
               <Divider />
-            </Drawer>
+            </Drawer> */}
             <main className={hasPadding ? classes.hasPadding : classes.content}>
               <div className={classes.appBarSpacer} />
               {children}

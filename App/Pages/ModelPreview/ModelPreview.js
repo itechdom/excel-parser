@@ -18,6 +18,7 @@ const enhance = compose(withState("open", "setOpen", false));
 
 const ModelPreview = enhance(
   ({ model, onEdit, form, open, setOpen, deleteModel, onDelete }) => {
+    console.log("model", model);
     if (form && model) {
       let previewList = form.fields.map(field => {
         if (

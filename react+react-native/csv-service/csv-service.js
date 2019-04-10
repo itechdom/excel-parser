@@ -4,6 +4,7 @@ import React from "react";
 import { data } from "../../medications";
 
 let finalObject = {};
+let id = -1;
 const axios = {
   get: (url, options) => {
     return new Promise((resolve, reject) => {
@@ -25,6 +26,7 @@ const axios = {
         });
       let fd = Object.keys(finalObject).map(k => {
         return {
+          _id: `${++id}`,
           title: k,
           ...finalObject[k]
         };

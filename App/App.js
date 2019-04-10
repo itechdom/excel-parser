@@ -25,18 +25,33 @@ const App = ({
   modelName,
   ...rest
 }) => {
+  let columns = [
+    "title",
+    "Initial Dose Range",
+    "Formulation",
+    "Max Dose (rec/obs)",
+    "Titration Info",
+    "Usual Titrate",
+    "Trials/Adverse SE/CI",
+    "Study 2",
+    "Study Dosage"
+  ];
   return (
     <MainWrapper match={match} history={history} location={location}>
       <ModelList
         modelArray={medications}
         modelKey={"title"}
         modelName={modelName}
-        columns={["title", "status"]}
+        columns={columns}
         createModel={medications_createModel}
         updateModel={medications_updateModel}
         getModel={medications_getModel}
         deleteModel={medications_deleteModel}
-        searchModel={medications_searchModel}
+        searchModel={() => {
+          return new Promise((resolve, reject) => {
+            return resolve(["1", "2", "3"]);
+          });
+        }}
         uploadMedia={medications_media_upload}
         uploadGallery={medications_gallery_upload}
         deleteMedia={medications_media_delete}
@@ -44,7 +59,15 @@ const App = ({
         match={match}
         history={history}
         classes={classes}
-        form={form}
+        form={{
+          fields: columns.map(col => {
+            return {
+              type: "text",
+              name: col,
+              placeholder: col
+            };
+          })
+        }}
         notifications={notifications}
         saveNotification={saveNotification}
         removeNotification={removeNotification}
