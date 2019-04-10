@@ -26,3 +26,4 @@ data/
 client_secret.json
 npm-debug.log
 .serverless/
+.serverless/**
