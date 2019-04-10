@@ -14,8 +14,15 @@ ReactDOM.render(
     <Router>
       <Route
         path={`/`}
-        render={({ match }) => {
-          return <App match={match} rootStore={rootStore} />;
+        render={({ match, history, location }) => {
+          return (
+            <App
+              match={match}
+              history={history}
+              location={location}
+              rootStore={rootStore}
+            />
+          );
         }}
       />
     </Router>
