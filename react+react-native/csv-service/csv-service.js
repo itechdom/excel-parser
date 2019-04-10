@@ -3,10 +3,33 @@ import { observable, action, runInAction, toJS } from "mobx";
 import React from "react";
 import { data } from "../../medications";
 
+let finalObject = {};
 const axios = {
   get: (url, options) => {
     return new Promise((resolve, reject) => {
-      return resolve({ data });
+      Object.keys(data)
+        .map(key => {
+          if (key === "Medication") {
+            data[key].map(med => {
+              finalObject[med] = {};
+            });
+          }
+          return key;
+        })
+        .map(key => {
+          if (key !== "Medication") {
+            Object.keys(finalObject).map((k, i) => {
+              finalObject[k][key] = data[key][i];
+            });
+          }
+        });
+      let fd = Object.keys(finalObject).map(k => {
+        return {
+          title: k,
+          ...finalObject[k]
+        };
+      });
+      return resolve({ data: fd });
     });
   },
   post: (url, options) => {},
