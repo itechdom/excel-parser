@@ -12,15 +12,15 @@ import {
 } from "react-router-dom";
 
 const App = ({
-  blogs,
-  blogs_createModel,
-  blogs_getModel,
-  blogs_updateModel,
-  blogs_deleteModel,
-  blogs_searchModel,
-  blogs_gallery_upload,
-  blogs_media_upload,
-  blogs_media_delete,
+  medications,
+  medications_createModel,
+  medications_getModel,
+  medications_updateModel,
+  medications_deleteModel,
+  medications_searchModel,
+  medications_gallery_upload,
+  medications_media_upload,
+  medications_media_delete,
   location,
   match,
   history,
@@ -33,18 +33,18 @@ const App = ({
 }) => {
   return (
     <ModelList
-      modelArray={blogs}
+      modelArray={medications}
       modelKey={"title"}
       modelName={modelName}
       columns={["title", "status"]}
-      createModel={blogs_createModel}
-      updateModel={blogs_updateModel}
-      getModel={blogs_getModel}
-      deleteModel={blogs_deleteModel}
-      searchModel={blogs_searchModel}
-      uploadMedia={blogs_media_upload}
-      uploadGallery={blogs_gallery_upload}
-      deleteMedia={blogs_media_delete}
+      createModel={medications_createModel}
+      updateModel={medications_updateModel}
+      getModel={medications_getModel}
+      deleteModel={medications_deleteModel}
+      searchModel={medications_searchModel}
+      uploadMedia={medications_media_upload}
+      uploadGallery={medications_gallery_upload}
+      deleteMedia={medications_media_delete}
       location={location}
       match={match}
       history={history}

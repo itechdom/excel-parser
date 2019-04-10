@@ -7,6 +7,11 @@ import {
   Redirect,
   withRouter
 } from "react-router-dom";
+import { csvDomainStore, notificationDomainStore } from "./react+react-native";
+let rootStore = new Store({
+  notificationDomainStore,
+  csvDomainStore
+});
 import App from "./App/App.js";
 
 ReactDOM.render(
