@@ -213,7 +213,7 @@ const ModelList = enhance(
                     columns={columns.map((col, i) => {
                       return {
                         label: col,
-                        id: i
+                        id: col
                       };
                     })}
                     rows={models}

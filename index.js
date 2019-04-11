@@ -7,6 +7,7 @@ import { csvDomainStore, CSV } from "./react+react-native";
 let rootStore = new Store({
   csvDomainStore
 });
+
 import App from "./App/App.js";
 
 ReactDOM.render(
