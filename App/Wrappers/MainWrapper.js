@@ -7,6 +7,7 @@ import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
+import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -90,6 +91,11 @@ class MainWrapper extends React.Component {
                 disableGutters={!this.state.open}
                 className={classes.toolbar}
               >
+                {location.pathname !== "/" ? (
+                  <Button onClick={() => history.goBack()}>{`< `}Back</Button>
+                ) : (
+                  <Button />
+                )}
                 <img
                   style={{ margin: "0 20px" }}
                   src={logo}
@@ -107,6 +113,7 @@ class MainWrapper extends React.Component {
                 >
                   <MenuIcon />
                 </IconButton>
+
                 <Typography
                   variant="title"
                   color="inherit"
