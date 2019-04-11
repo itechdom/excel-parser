@@ -1,5 +1,6 @@
 "use strict";
 var webpack = require("webpack");
+var ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
 module.exports = env => {
   return {
     entry: {
