@@ -195,9 +195,7 @@ const ModelList = enhance(
                       <Autocomplete
                         placeholder="Search…"
                         onSelect={suggestion => {
-                          history.push(
-                            `/${suggestion.resource}/view/${suggestion._id}`
-                          );
+                          history.push(`//view/${suggestion._id}`);
                         }}
                         loadSuggestions={text => {
                           let query = {
@@ -221,9 +219,9 @@ const ModelList = enhance(
                     rows={models}
                   />
                 )}
-                <Paper className={classes.listContainer}>
+                {/* <Paper className={classes.listContainer}>
                   <List>{modelsView}</List>
-                </Paper>
+                </Paper> */}
                 {hideAddButton ? (
                   ""
                 ) : (

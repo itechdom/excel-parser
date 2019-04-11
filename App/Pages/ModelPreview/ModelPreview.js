@@ -29,9 +29,11 @@ const ModelPreview = enhance(
           return (
             <ListItem>
               <Typography variant="h6" component="h6">
-                {field.placeholder}
+                {field.placeholder}:
               </Typography>
-              <Typography>{model[field.name]}</Typography>
+              <Typography style={{ paddingLeft: "10px" }}>
+                {model[field.name]}
+              </Typography>
             </ListItem>
           );
         }

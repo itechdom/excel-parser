@@ -3,6 +3,7 @@ import ModelList from "./Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
 import { styles } from "./App.styles";
 import MainWrapper from "./Wrappers/MainWrapper";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 const App = ({
   medications,
@@ -41,15 +42,19 @@ const App = ({
       <ModelList
         modelArray={medications}
         modelKey={"title"}
-        modelName={modelName}
+        modelName={"medication"}
         columns={columns}
         createModel={medications_createModel}
         updateModel={medications_updateModel}
         getModel={medications_getModel}
         deleteModel={medications_deleteModel}
-        searchModel={() => {
+        searchModel={query => {
+          let q = query.title.$regex;
           return new Promise((resolve, reject) => {
-            return resolve(["1", "2", "3"]);
+            let a = medications.filter(m => {
+              return m.title.match(new RegExp(q));
+            });
+            return resolve(a);
           });
         }}
         uploadMedia={medications_media_upload}

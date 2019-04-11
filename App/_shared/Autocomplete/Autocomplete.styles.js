@@ -4,7 +4,8 @@ export const styles = theme => ({
     flexGrow: 1
   },
   container: {
-    position: "relative"
+    position: "relative",
+    width: "100%"
   },
   suggestionsContainerOpen: {
     position: "absolute",

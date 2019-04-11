@@ -21,6 +21,7 @@ ReactDOM.render(
               modelName="medications"
             >
               <App
+                modelName="medications"
                 match={match}
                 history={history}
                 location={location}
