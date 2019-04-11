@@ -1,6 +1,9 @@
 import ReactDOM from "react-dom";
 import React from "react";
 import { HashRouter as Router, Route } from "react-router-dom";
+import * as OfflinePluginRuntime from 'offline-plugin/runtime';
+OfflinePluginRuntime.install();
+
 import Store from "./App/Store/Store";
 
 import { csvDomainStore, CSV } from "./react+react-native";

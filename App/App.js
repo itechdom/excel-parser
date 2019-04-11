@@ -3,7 +3,6 @@ import ModelList from "./Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
 import { styles } from "./App.styles";
 import MainWrapper from "./Wrappers/MainWrapper";
-import { HashRouter as Router, Route } from "react-router-dom";
 
 const App = ({
   medications,

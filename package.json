@@ -5,6 +5,7 @@
   "main": "src/javascript/index.js",
   "scripts": {
     "start": "node_modules/.bin/webpack-dev-server --mode=development --port 8085",
+    "deploy": "./node_modules/.bin/webpack && cp -a dist/bundle.js client/dist/",
     "start:cloud9": "node_modules/.bin/webpack-dev-server --inline --progress --port 8080 --host 0.0.0.0 --public $C9_HOSTNAME",
     "test": "node_modules/.bin/jest"
   },
@@ -63,6 +64,7 @@
     "mobx-react-devtools": "^6.0.3",
     "node-sass": "^4.11.0",
     "normalize.css": "^8.0.1",
+    "offline-plugin": "^5.0.6",
     "papaparse": "^4.6.3",
     "sass-loader": "^7.1.0",
     "serverless-apig-s3": "^2.0.0",

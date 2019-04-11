@@ -1,6 +1,7 @@
 "use strict";
 var webpack = require("webpack");
-var ServiceWorkerWebpackPlugin = require("serviceworker-webpack-plugin");
+const path = require("path");
+var OfflinePlugin = require("offline-plugin");
 module.exports = env => {
   return {
     entry: {
@@ -49,6 +50,7 @@ module.exports = env => {
         }
       ]
     },
+    plugins: [new OfflinePlugin()],
     //To run development server
     devServer: {
       contentBase: __dirname
