@@ -1,14 +1,14 @@
 var __wpo = {
   "assets": {
     "main": [
-      "/dist/bundle.js"
+      "bundle.js"
     ],
     "additional": [],
     "optional": []
   },
   "externals": [],
   "hashesMap": {
-    "c660436d5ae9aaa61419c7920e17c345e681869c": "/dist/bundle.js"
+    "c660436d5ae9aaa61419c7920e17c345e681869c": "bundle.js"
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
