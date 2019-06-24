@@ -1,18 +1,18 @@
 var __wpo = {
   "assets": {
     "main": [
-      "bundle.js"
+      "/dist/bundle.js"
     ],
     "additional": [],
     "optional": []
   },
   "externals": [],
   "hashesMap": {
-    "c660436d5ae9aaa61419c7920e17c345e681869c": "bundle.js"
+    "5712cec89c4c69ee72f9786a8f5f8eaa681f01af": "/dist/bundle.js"
   },
   "strategy": "changed",
   "responseStrategy": "cache-first",
-  "version": "4/11/2019, 11:23:46 AM",
+  "version": "6/24/2019, 1:35:59 PM",
   "name": "webpack-offline",
   "pluginVersion": "5.0.6",
   "relativePaths": false
