@@ -68,6 +68,7 @@ const ModelList = enhance(
     ...rest
   }) => {
     let models = modelArray;
+    const [type, setType] = React.useState("ALL");
     let modelsView = <CircularProgress color="secondary" />;
     if (models && models.length > 0) {
       modelsView = models.map((model, index) => {
@@ -203,12 +204,15 @@ const ModelList = enhance(
                           let query = {
                             [modelKey]: { $regex: event.target.value }
                           };
-                          return searchModel(query);
+                          return searchModel(query, type);
                         }}
                       />
                     </Toolbar>
                     <MedicationSelect
                       list={modelTypes}
+                      onSelect={type => {
+                        setType(type);
+                      }}
                       className={classes.medicationSelect}
                     />
                   </AppBar>

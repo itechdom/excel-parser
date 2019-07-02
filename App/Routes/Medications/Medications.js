@@ -26,6 +26,25 @@ const App = ({
   modelName,
   ...rest
 }) => {
+  const searchModel = (query, type) => {
+    let q = query.title.$regex;
+    let a = [];
+    return new Promise((resolve, reject) => {
+      if (type && type !== "ALL") {
+        a = medications.filter(m => {
+          return (
+            m.title.toLowerCase().match(new RegExp(q.toLowerCase())) &&
+            m["Medication Type"] === type
+          );
+        });
+      } else {
+        a = medications.filter(m => {
+          return m.title.toLowerCase().match(new RegExp(q.toLowerCase()));
+        });
+      }
+      return resolve(a);
+    });
+  };
   let columns = [
     "Medication Type",
     "title",
@@ -52,15 +71,7 @@ const App = ({
       match={match}
       history={history}
       location={location}
-      searchModel={query => {
-        let q = query.title.$regex;
-        return new Promise((resolve, reject) => {
-          let a = medications.filter(m => {
-            return m.title.match(new RegExp(q));
-          });
-          return resolve(a);
-        });
-      }}
+      searchModel={searchModel}
       modelKey={"title"}
     >
       <ModelList
@@ -72,7 +83,9 @@ const App = ({
             .filter(v => v.trim().length !== 0)
             .filter(
               v =>
-                v.toLowerCase().indexOf("Guideline") === -1 &&
+                v.toLowerCase() !== "tapering guidelines" &&
+                v.toLowerCase() !== "titrating guidelines" &&
+                v.toLowerCase() !== "antidepressant switching guideline" &&
                 v.toLowerCase() !== "key legend"
             )
         }
@@ -83,15 +96,7 @@ const App = ({
         updateModel={medications_updateModel}
         getModel={medications_getModel}
         deleteModel={medications_deleteModel}
-        searchModel={query => {
-          let q = query.title.$regex;
-          return new Promise((resolve, reject) => {
-            let a = medications.filter(m => {
-              return m.title.toLowerCase().match(new RegExp(q.toLowerCase()));
-            });
-            return resolve(a);
-          });
-        }}
+        searchModel={searchModel}
         uploadMedia={medications_media_upload}
         uploadGallery={medications_gallery_upload}
         deleteMedia={medications_media_delete}

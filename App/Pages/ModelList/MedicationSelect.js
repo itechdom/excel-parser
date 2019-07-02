@@ -19,11 +19,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function MedicationSelect(props) {
   const classes = useStyles();
-  const [age, setAge] = React.useState("");
-  const [open, setOpen] = React.useState(false);
   const [type, setType] = React.useState("ALL");
+  const [open, setOpen] = React.useState(false);
   function handleChange(event) {
-    setAge(event.target.value);
+    props.onSelect(event.target.value);
+    setType(event.target.value);
   }
 
   function handleClose() {
@@ -43,10 +43,10 @@ export default function MedicationSelect(props) {
           open={open}
           onClose={handleClose}
           onOpen={handleOpen}
-          value={age}
+          value={type}
           onChange={handleChange}
           inputProps={{
-            name: "age",
+            name: "type",
             id: "demo-controlled-open-select"
           }}
         >
