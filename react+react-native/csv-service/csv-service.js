@@ -31,7 +31,9 @@ const axios = {
           ...finalObject[k]
         };
       });
-      return resolve({ data: fd });
+      return resolve({
+        data: { list: fd, medicationTypes: data["Medication Type"] }
+      });
     });
   },
   post: (url, options) => {},
@@ -75,7 +77,8 @@ export class csvDomainStore {
             let transformedModel = transform(res.data);
             return this.mapStore.set(modelName, transformedModel);
           }
-          this.mapStore.set(modelName, res.data);
+          this.mapStore.set(modelName, res.data.list);
+          this.mapStore.set(`${modelName}_types`, res.data.medicationTypes);
         });
       })
       .catch(err => {
@@ -225,6 +228,9 @@ const injectProps = (
   injected[modelName] = transform
     ? transform(csvDomainStore.mapStore.get(modelName))
     : csvDomainStore.mapStore.get(modelName);
+  injected[`${modelName}_types`] = csvDomainStore.mapStore.get(
+    `${modelName}_types`
+  );
   injected[`${modelName}_getModel`] = query => {
     csvDomainStore.getModel(query, modelName, true, transform);
   };

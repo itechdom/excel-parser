@@ -21,6 +21,7 @@ import ModelListItem from "./ModelListItem";
 import FloatingAddButton from "../../_shared/FloatingAddButton/FloatingAddButton";
 import ClientNotification from "../../_shared/ClientNotification/ClientNotification";
 import Autocomplete from "../../_shared/Autocomplete/Autocomplete";
+import MedicationSelect from "./MedicationSelect";
 import Table from "../../_shared/Table/Table";
 
 const enhance = compose(
@@ -31,6 +32,7 @@ const enhance = compose(
 const ModelList = enhance(
   ({
     modelArray,
+    modelTypes,
     modelSchema,
     columns,
     createModel,
@@ -205,6 +207,10 @@ const ModelList = enhance(
                         }}
                       />
                     </Toolbar>
+                    <MedicationSelect
+                      list={modelTypes}
+                      className={classes.medicationSelect}
+                    />
                   </AppBar>
                 </header>
                 {models && models.length > 0 && (
@@ -219,9 +225,6 @@ const ModelList = enhance(
                     rows={models}
                   />
                 )}
-                {/* <Paper className={classes.listContainer}>
-                  <List>{modelsView}</List>
-                </Paper> */}
                 {hideAddButton ? (
                   ""
                 ) : (

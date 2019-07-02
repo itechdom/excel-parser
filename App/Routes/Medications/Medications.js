@@ -6,6 +6,7 @@ import MainWrapper from "../../Wrappers/MainWrapper";
 
 const App = ({
   medications,
+  medications_types,
   medications_createModel,
   medications_getModel,
   medications_updateModel,
@@ -64,6 +65,17 @@ const App = ({
     >
       <ModelList
         modelArray={medications}
+        modelTypes={
+          medications_types &&
+          medications_types
+            .filter((v, i, a) => a.indexOf(v) === i)
+            .filter(v => v.trim().length !== 0)
+            .filter(
+              v =>
+                v.toLowerCase().indexOf("Guideline") === -1 &&
+                v.toLowerCase() !== "key legend"
+            )
+        }
         modelKey={"title"}
         modelName={"medication"}
         columns={columns}
@@ -75,7 +87,7 @@ const App = ({
           let q = query.title.$regex;
           return new Promise((resolve, reject) => {
             let a = medications.filter(m => {
-              return m.title.match(new RegExp(q));
+              return m.title.toLowerCase().match(new RegExp(q.toLowerCase()));
             });
             return resolve(a);
           });
