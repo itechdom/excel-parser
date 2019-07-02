@@ -69,6 +69,7 @@ export const styles = theme => ({
     flexGrow: 1,
     height: "100vh",
     overflow: "auto",
+    marginTop: "70px",
     [theme.breakpoints.up("md")]: {
       padding: "1em 4em"
     }
@@ -92,7 +93,9 @@ export const styles = theme => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25)
     },
-    marginLeft: 0,
+    paddingLeft: "16px",
+    paddingRight: "16px",
+    paddingBottom: "16px",
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing.unit,

@@ -82,21 +82,21 @@ class MainWrapper extends React.Component {
                   >
                     Psych Med
                   </Typography>
-                  <div className={classes.search}>
-                    <Autocomplete
-                      placeholder="Search…"
-                      onSelect={suggestion => {
-                        history.push(`/view/${suggestion._id}`);
-                      }}
-                      loadSuggestions={text => {
-                        let query = {
-                          [modelKey]: { $regex: event.target.value }
-                        };
-                        return searchModel(query);
-                      }}
-                    />
-                  </div>
                 </Toolbar>
+                <div className={classes.search}>
+                  <Autocomplete
+                    placeholder="Search…"
+                    onSelect={suggestion => {
+                      history.push(`/view/${suggestion._id}`);
+                    }}
+                    loadSuggestions={text => {
+                      let query = {
+                        [modelKey]: { $regex: event.target.value }
+                      };
+                      return searchModel(query);
+                    }}
+                  />
+                </div>
               </AppBar>
               <main
                 className={hasPadding ? classes.hasPadding : classes.content}
