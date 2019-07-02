@@ -3,26 +3,20 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import List from "@material-ui/core/List";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Tooltip from "@material-ui/core/Tooltip";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
-import Autocomplete from "../_shared/Autocomplete/Autocomplete";
 import { styles } from "./MainWrapper.styles";
 import { compose } from "recompose";
-
-const modelNames = ["users", "events", "blogs", "products"];
+import BottomNavigation from "./BottomNavigation";
 
 let theme = createMuiTheme({
   palette: {
@@ -58,6 +52,11 @@ class MainWrapper extends React.Component {
   handleMenuClose = () => {
     this.setState({ anchorEl: null });
   };
+
+  handleTabChange(event, newValue) {
+    console.log("new value", newValue);
+    setValue(newValue);
+  }
 
   render() {
     const {
@@ -162,27 +161,11 @@ class MainWrapper extends React.Component {
                 )}
               </Toolbar>
             </AppBar>
-            {/* <Drawer
-              variant="permanent"
-              classes={{
-                paper: classNames(
-                  classes.drawerPaper,
-                  !this.state.open && classes.drawerPaperClose
-                )
-              }}
-              open={this.state.open}
-            >
-              <div className={classes.toolbarIcon}>
-                <IconButton onClick={this.handleDrawerClose}>
-                  <ChevronLeftIcon />
-                </IconButton>
-              </div>
-              <Divider />
-            </Drawer> */}
             <main className={hasPadding ? classes.hasPadding : classes.content}>
               <div className={classes.appBarSpacer} />
               {children}
             </main>
+            <BottomNavigation classes={classes} />
           </div>
         </MuiThemeProvider>
       </React.Fragment>

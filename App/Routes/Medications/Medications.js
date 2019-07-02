@@ -1,8 +1,8 @@
 import React from "react";
-import ModelList from "./Pages/ModelList/ModelList";
+import ModelList from "../../Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
-import { styles } from "./App.styles";
-import MainWrapper from "./Wrappers/MainWrapper";
+import { styles } from "./Medications.styles";
+import MainWrapper from "../../Wrappers/MainWrapper";
 
 const App = ({
   medications,
