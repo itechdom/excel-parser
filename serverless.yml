@@ -108,5 +108,5 @@ plugins:
 
 custom:
   client:
-    bucketName: medpsych-front-website # (see Configuration Parameters below)
+    bucketName: medpsych-front # (see Configuration Parameters below)
     distributionFolder: client/dist

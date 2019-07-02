@@ -26,15 +26,25 @@ const App = ({
   ...rest
 }) => {
   let columns = [
+    "Medication Type",
     "title",
-    "Initial Dose Range",
+    "Brand Name",
     "Formulation",
+    "Initial Dose Range",
+    "Usual Titration",
     "Max Dose (rec/obs)",
-    "Titration Info",
-    "Usual Titrate",
-    "Trials/Adverse SE/CI",
+    "Max Titration",
+    "Usual Max Dose",
+    "Max Dose",
+    "Taper",
+    "CYP (Metabolized/Inducer/Inhibitor) with weaker effects in parens",
+    "Study Dosage",
+    "Study 1",
     "Study 2",
-    "Study Dosage"
+    "Study 3",
+    "Notes",
+    "Notes 2",
+    "Trials/Adverse SE/CI"
   ];
   return (
     <MainWrapper match={match} history={history} location={location}>
