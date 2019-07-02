@@ -17,7 +17,7 @@ ReactDOM.render(
     <Router>
       <Switch>
         <Route
-          path={`/medications`}
+          path={`/`}
           render={({ match, history, location }) => {
             return (
               <CSV
@@ -36,7 +36,7 @@ ReactDOM.render(
           }}
         />
         <Route
-          path={`/`}
+          path={`/guide`}
           render={({ match, history, location }) => {
             return (
               <Guide
