@@ -39,13 +39,18 @@ ReactDOM.render(
           path={`/guide`}
           render={({ match, history, location }) => {
             return (
-              <Guide
-                modelName="guide"
-                match={match}
-                history={history}
-                location={location}
-                rootStore={rootStore}
-              />
+              <CSV
+                csvDomainStore={rootStore.csvDomainStore}
+                modelName="medications"
+              >
+                <Guide
+                  modelName="guide"
+                  match={match}
+                  history={history}
+                  location={location}
+                  rootStore={rootStore}
+                />
+              </CSV>
             );
           }}
         />

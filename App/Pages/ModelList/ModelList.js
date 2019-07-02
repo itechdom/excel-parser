@@ -161,7 +161,7 @@ const ModelList = enhance(
           }}
         />
         <Route
-          path={`${match.path}/view/:id`}
+          path={`${match.path}view/:id`}
           render={({ match }) => {
             return (
               <ModelPreview
@@ -195,7 +195,7 @@ const ModelList = enhance(
                       <Autocomplete
                         placeholder="Search…"
                         onSelect={suggestion => {
-                          history.push(`//view/${suggestion._id}`);
+                          history.push(`/view/${suggestion._id}`);
                         }}
                         loadSuggestions={text => {
                           let query = {

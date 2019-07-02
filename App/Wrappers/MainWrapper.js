@@ -1,14 +1,16 @@
-import React, { Children } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
 import Typography from "@material-ui/core/Typography";
+import Toolbar from "@material-ui/core/Toolbar";
 import { createMuiTheme, MuiThemeProvider } from "@material-ui/core/styles";
 import { styles } from "./MainWrapper.styles";
 import { compose } from "recompose";
 import Container from "@material-ui/core/Container";
+import Autocomplete from "../_shared/Autocomplete/Autocomplete";
 
 let theme = createMuiTheme({
   palette: {
@@ -50,7 +52,14 @@ class MainWrapper extends React.Component {
   }
 
   render() {
-    const { classes, children, hasPadding } = this.props;
+    const {
+      classes,
+      children,
+      hasPadding,
+      searchModel,
+      modelKey,
+      history
+    } = this.props;
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
@@ -64,14 +73,30 @@ class MainWrapper extends React.Component {
                   this.state.open && classes.appBarShift
                 )}
               >
-                <Typography
-                  variant="title"
-                  color="inherit"
-                  noWrap
-                  className={classes.title}
-                >
-                  Psych Med
-                </Typography>
+                <Toolbar>
+                  <Typography
+                    variant="title"
+                    color="inherit"
+                    noWrap
+                    className={classes.title}
+                  >
+                    Psych Med
+                  </Typography>
+                  <div className={classes.search}>
+                    <Autocomplete
+                      placeholder="Search…"
+                      onSelect={suggestion => {
+                        history.push(`/view/${suggestion._id}`);
+                      }}
+                      loadSuggestions={text => {
+                        let query = {
+                          [modelKey]: { $regex: event.target.value }
+                        };
+                        return searchModel(query);
+                      }}
+                    />
+                  </div>
+                </Toolbar>
               </AppBar>
               <main
                 className={hasPadding ? classes.hasPadding : classes.content}

@@ -47,7 +47,21 @@ const App = ({
     "Trials/Adverse SE/CI"
   ];
   return (
-    <MainWrapper match={match} history={history} location={location}>
+    <MainWrapper
+      match={match}
+      history={history}
+      location={location}
+      searchModel={query => {
+        let q = query.title.$regex;
+        return new Promise((resolve, reject) => {
+          let a = medications.filter(m => {
+            return m.title.match(new RegExp(q));
+          });
+          return resolve(a);
+        });
+      }}
+      modelKey={"title"}
+    >
       <ModelList
         modelArray={medications}
         modelKey={"title"}
