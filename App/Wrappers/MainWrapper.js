@@ -11,6 +11,8 @@ import { styles } from "./MainWrapper.styles";
 import { compose } from "recompose";
 import Container from "@material-ui/core/Container";
 import Autocomplete from "../_shared/Autocomplete/Autocomplete";
+import CheckCircle from "@material-ui/icons/CheckCircleOutline";
+import DoneOutline from "@material-ui/icons/DoneOutline";
 
 let theme = createMuiTheme({
   palette: {
@@ -79,8 +81,11 @@ class MainWrapper extends React.Component {
                     color="inherit"
                     noWrap
                     className={classes.title}
+                    align={"center"}
                   >
-                    Psych Med
+                    <h1>
+                      <DoneOutline /> Psych Med
+                    </h1>
                   </Typography>
                 </Toolbar>
                 <div className={classes.search}>

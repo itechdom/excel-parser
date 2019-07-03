@@ -3,7 +3,13 @@ import { fade } from "@material-ui/core/styles/colorManipulator";
 
 export const styles = theme => ({
   root: {
-    display: "flex"
+    display: "flex",
+    paddingRight: "3px",
+    paddingLeft: "3px"
+  },
+  main: {
+    paddingLeft:"0px",
+    paddingRight:"0px"
   },
   toolbar: {
     paddingRight: 24 // keep right padding when drawer closed

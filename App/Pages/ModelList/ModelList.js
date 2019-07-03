@@ -2,8 +2,6 @@ import React from "react";
 //Routing
 import { Route } from "react-router-dom";
 //Material UI imports
-import Paper from "@material-ui/core/Paper";
-import List from "@material-ui/core/List";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -192,28 +190,27 @@ const ModelList = enhance(
           render={props => {
             return (
               <React.Fragment>
-                <header>
-                  <AppBar position="static">
-                    <Toolbar>
-                      <Autocomplete
-                        placeholder="Search…"
-                        onSelect={suggestion => {
-                          history.push(`/view/${suggestion._id}`);
-                        }}
-                        loadSuggestions={text => {
-                          let query = {
-                            [modelKey]: { $regex: event.target.value }
-                          };
-                          return searchModel(query, type);
-                        }}
-                      />
-                    </Toolbar>
+                <header className={classes.header}>
+                  <AppBar className={classes.appBar} position="static">
                     <MedicationSelect
                       list={modelTypes}
                       onSelect={type => {
                         setType(type);
                       }}
                       className={classes.medicationSelect}
+                    />
+                    <Autocomplete
+                      className={classes.medicationSearch}
+                      placeholder="Search…"
+                      onSelect={suggestion => {
+                        history.push(`/view/${suggestion._id}`);
+                      }}
+                      loadSuggestions={text => {
+                        let query = {
+                          [modelKey]: { $regex: event.target.value }
+                        };
+                        return searchModel(query, type);
+                      }}
                     />
                   </AppBar>
                 </header>
