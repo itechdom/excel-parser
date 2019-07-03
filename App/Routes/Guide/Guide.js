@@ -5,8 +5,17 @@ import TableCell from "@material-ui/core/TableCell";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import MainWrapper from "../../Wrappers/MainWrapper";
+import { Typography } from "@material-ui/core";
+import withStyles from "@material-ui/styles/withStyles";
+import { styles } from "./Guide.styles";
 
-const Guide = ({ match, location, history, medications_searchModel }) => {
+const Guide = ({
+  match,
+  location,
+  history,
+  medications_searchModel,
+  classes
+}) => {
   const studyDosage = {
     p: "preschool",
     c: "childhood (6-12)",
@@ -53,7 +62,8 @@ const Guide = ({ match, location, history, medications_searchModel }) => {
             return (
               <TableRow>
                 <TableCell>
-                  <b>{column}</b>:{data[column]}
+                  <span className={classes.key}>{column}</span>:
+                  <span className={classes.value}>{data[column]}</span>
                 </TableCell>
               </TableRow>
             );
@@ -73,17 +83,21 @@ const Guide = ({ match, location, history, medications_searchModel }) => {
       location={location}
       history={history}
     >
-      <Paper>
-        <h1>Dosing Reference Reports</h1>
-        <h2>Geared towards outpatient settting and child psychiatry</h2>
-        <h3>Study Dosage:</h3>
+      <Paper className={classes.container}>
+        <Typography variant="h5" gutterBottom>
+          Dosing Reference Reports
+        </Typography>
+        <Typography gutterBottom>
+          Geared towards outpatient settting and child psychiatry
+        </Typography>
+        <Typography>Study Dosage:</Typography>
         {StudyDosage}
-        <h3>Refs:</h3>
+        <Typography>Refs:</Typography>
         {RefsComp}
-        <h3>External References:</h3>
+        <Typography>External References:</Typography>
         {References}
       </Paper>
     </MainWrapper>
   );
 };
-export default Guide;
+export default withStyles(styles)(Guide);

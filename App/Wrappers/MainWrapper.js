@@ -13,6 +13,7 @@ import Container from "@material-ui/core/Container";
 import Autocomplete from "../_shared/Autocomplete/Autocomplete";
 import CheckCircle from "@material-ui/icons/CheckCircleOutline";
 import DoneOutline from "@material-ui/icons/DoneOutline";
+import Button from "@material-ui/core/Button";
 
 let theme = createMuiTheme({
   palette: {
@@ -72,6 +73,11 @@ class MainWrapper extends React.Component {
             <Container component="main" className={classes.main} maxWidth="lg">
               <AppBar position="absolute" className={classes.appBar}>
                 <Toolbar>
+                  {!isHome ? (
+                    <Button onClick={() => history.goBack()}>{`< `}Back</Button>
+                  ) : (
+                    <></>
+                  )}
                   <Typography
                     variant="title"
                     color="inherit"
