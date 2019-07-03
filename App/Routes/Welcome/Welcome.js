@@ -1,52 +1,10 @@
 import React from "react";
 import ModelList from "../../Pages/ModelList/ModelList";
 import { withStyles } from "@material-ui/core/styles";
-import { styles } from "./Medications.styles";
+import { styles } from "./Welcome.styles";
 import MainWrapper from "../../Wrappers/MainWrapper";
 
-const App = ({
-  medications,
-  medications_types,
-  medications_createModel,
-  medications_getModel,
-  medications_updateModel,
-  medications_deleteModel,
-  medications_searchModel,
-  medications_gallery_upload,
-  medications_media_upload,
-  medications_media_delete,
-  location,
-  match,
-  history,
-  classes,
-  form,
-  notifications,
-  saveNotification,
-  removeNotification,
-  modelName,
-  ...rest
-}) => {
-  let columns = [
-    "Medication Type",
-    "title",
-    "Brand Name",
-    "Formulation",
-    "Initial Dose Range",
-    "Usual Titration",
-    "Max Dose (rec/obs)",
-    "Max Titration",
-    "Usual Max Dose",
-    "Max Dose",
-    "Taper",
-    "CYP (Metabolized/Inducer/Inhibitor) with weaker effects in parens",
-    "Study Dosage",
-    "Study 1",
-    "Study 2",
-    "Study 3",
-    "Notes",
-    "Notes 2",
-    "Trials/Adverse SE/CI"
-  ];
+const App = ({ location, match, history, classes, ...rest }) => {
   return (
     <MainWrapper
       match={match}

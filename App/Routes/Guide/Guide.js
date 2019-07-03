@@ -68,7 +68,12 @@ const SimpleTable = ({ match, location, history }) => {
   const RefsComp = makeTable(refs);
   const References = makeTable(references);
   return (
-    <MainWrapper match={match} location={location} history={history}>
+    <MainWrapper
+      searchModel={searchModel}
+      match={match}
+      location={location}
+      history={history}
+    >
       <Paper>
         <h1>Dosing Reference Reports</h1>
         <h2>Geared towards outpatient settting and child psychiatry</h2>
