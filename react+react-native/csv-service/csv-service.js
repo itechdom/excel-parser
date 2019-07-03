@@ -2,6 +2,7 @@ import { observer } from "mobx-react";
 import { observable, action, runInAction, toJS } from "mobx";
 import React from "react";
 import { data } from "../../medications";
+import { searchModel } from "./searchModel";
 
 let finalObject = {};
 let id = -1;
@@ -152,20 +153,9 @@ export class csvDomainStore {
     });
   }
   @action
-  searchModel(modelName, query) {
-    return this.offlineStorage.getItem("jwtToken").then(token => {
-      return axios
-        .post(`${this.SERVER.host}:${this.SERVER.port}/${modelName}/search`, {
-          query,
-          token
-        })
-        .then(res => {
-          return res.data;
-        })
-        .catch(err => {
-          return this.setError(modelName, err);
-        });
-    });
+  searchModel(modelName, query, type) {
+    const medications = this.mapStore.get(modelName);
+    return searchModel(medications, query, type);
   }
   @action
   setError(modelName, err) {
@@ -243,8 +233,8 @@ const injectProps = (
   injected[`${modelName}_deleteModel`] = model =>
     csvDomainStore.deleteModel(modelName, model);
 
-  injected[`${modelName}_searchModel`] = query =>
-    csvDomainStore.searchModel(modelName, query);
+  injected[`${modelName}_searchModel`] = (query, type) =>
+    csvDomainStore.searchModel(modelName, query, type);
 
   injected[`searchModels`] = (modelNames, query) => {
     let promises = modelNames.map(modelName => {

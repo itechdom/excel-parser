@@ -11,6 +11,7 @@ let rootStore = new Store({
 
 import Medications from "./App/Routes/Medications/Medications";
 import Guide from "./App/Routes/Guide/Guide";
+import Welcome from "./App/Routes/Welcome/Welcome";
 
 ReactDOM.render(
   <div>
@@ -44,6 +45,25 @@ ReactDOM.render(
                 modelName="medications"
               >
                 <Guide
+                  modelName="guide"
+                  match={match}
+                  history={history}
+                  location={location}
+                  rootStore={rootStore}
+                />
+              </CSV>
+            );
+          }}
+        />
+        <Route
+          path={`/welcome`}
+          render={({ match, history, location }) => {
+            return (
+              <CSV
+                csvDomainStore={rootStore.csvDomainStore}
+                modelName="medications"
+              >
+                <Welcome
                   modelName="guide"
                   match={match}
                   history={history}

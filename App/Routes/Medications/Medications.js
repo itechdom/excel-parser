@@ -52,7 +52,7 @@ const App = ({
       match={match}
       history={history}
       location={location}
-      searchModel={searchModel}
+      searchModel={medications_searchModel}
       modelKey={"title"}
     >
       <ModelList
@@ -77,7 +77,7 @@ const App = ({
         updateModel={medications_updateModel}
         getModel={medications_getModel}
         deleteModel={medications_deleteModel}
-        searchModel={searchModel}
+        searchModel={medications_searchModel}
         uploadMedia={medications_media_upload}
         uploadGallery={medications_gallery_upload}
         deleteMedia={medications_media_delete}

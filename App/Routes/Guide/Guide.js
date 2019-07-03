@@ -2,12 +2,11 @@ import React from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import MainWrapper from "../../Wrappers/MainWrapper";
 
-const SimpleTable = ({ match, location, history }) => {
+const Guide = ({ match, location, history, medications_searchModel }) => {
   const studyDosage = {
     p: "preschool",
     c: "childhood (6-12)",
@@ -69,7 +68,7 @@ const SimpleTable = ({ match, location, history }) => {
   const References = makeTable(references);
   return (
     <MainWrapper
-      searchModel={searchModel}
+      searchModel={medications_searchModel}
       match={match}
       location={location}
       history={history}
@@ -87,4 +86,4 @@ const SimpleTable = ({ match, location, history }) => {
     </MainWrapper>
   );
 };
-export default SimpleTable;
+export default Guide;
