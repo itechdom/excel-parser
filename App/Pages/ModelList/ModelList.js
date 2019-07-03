@@ -192,6 +192,7 @@ const ModelList = enhance(
               <React.Fragment>
                 <header className={classes.header}>
                   <AppBar className={classes.appBar} position="static">
+                    <h3>Search Medications</h3>
                     <MedicationSelect
                       list={modelTypes}
                       onSelect={type => {
@@ -216,6 +217,7 @@ const ModelList = enhance(
                 </header>
                 {models && models.length > 0 && (
                   <Table
+                    onItemClick={id => history.push(`/view/${id}`)}
                     title={modelName}
                     columns={columns.map((col, i) => {
                       return {
