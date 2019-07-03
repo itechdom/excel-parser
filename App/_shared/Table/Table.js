@@ -209,7 +209,7 @@ class EnhancedTable extends React.Component {
 
     return (
       <Paper className={classes.root}>
-        <EnhancedTableToolbar title={title} numSelected={selected.length} />
+        {/* <EnhancedTableToolbar title={title} numSelected={selected.length} /> */}
         <div className={classes.tableWrapper}>
           <Table className={classes.table} aria-labelledby="tableTitle">
             <EnhancedTableHead

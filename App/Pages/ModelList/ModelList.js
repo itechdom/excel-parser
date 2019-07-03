@@ -6,6 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Divider from "@material-ui/core/Divider";
+import Typography from "@material-ui/core/Typography";
 import { styles } from "./ModelList.styles";
 import { withStyles } from "@material-ui/core/styles";
 //recompose
@@ -21,6 +22,7 @@ import ClientNotification from "../../_shared/ClientNotification/ClientNotificat
 import Autocomplete from "../../_shared/Autocomplete/Autocomplete";
 import MedicationSelect from "./MedicationSelect";
 import Table from "../../_shared/Table/Table";
+import SearchIcon from "@material-ui/icons/SearchOutlined";
 
 const enhance = compose(
   withState("open", "setOpen", false),
@@ -192,7 +194,12 @@ const ModelList = enhance(
               <React.Fragment>
                 <header className={classes.header}>
                   <AppBar className={classes.appBar} position="static">
-                    <h3>Search Medications</h3>
+                    <Typography gutterBottom>
+                      <SearchIcon
+                        style={{ top: "5px", position: "relative" }}
+                      />
+                      Search Medications
+                    </Typography>
                     <MedicationSelect
                       list={modelTypes}
                       onSelect={type => {

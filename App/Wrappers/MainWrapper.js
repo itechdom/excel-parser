@@ -60,21 +60,17 @@ class MainWrapper extends React.Component {
       hasPadding,
       searchModel,
       modelKey,
-      history
+      history,
+      location
     } = this.props;
+    const isHome = location.pathname === "/";
     return (
       <React.Fragment>
         <MuiThemeProvider theme={theme}>
           <CssBaseline />
           <div className={classes.root}>
             <Container component="main" className={classes.main} maxWidth="lg">
-              <AppBar
-                position="absolute"
-                className={classNames(
-                  classes.appBar,
-                  this.state.open && classes.appBarShift
-                )}
-              >
+              <AppBar position="absolute" className={classes.appBar}>
                 <Toolbar>
                   <Typography
                     variant="title"
@@ -83,25 +79,29 @@ class MainWrapper extends React.Component {
                     className={classes.title}
                     align={"center"}
                   >
-                    <h1>
+                    <Typography variant="h5">
                       <DoneOutline /> Psych Med
-                    </h1>
+                    </Typography>
                   </Typography>
                 </Toolbar>
-                <div className={classes.search}>
-                  <Autocomplete
-                    placeholder="Search…"
-                    onSelect={suggestion => {
-                      history.push(`/view/${suggestion._id}`);
-                    }}
-                    loadSuggestions={text => {
-                      let query = {
-                        [modelKey]: { $regex: event.target.value }
-                      };
-                      return searchModel(query);
-                    }}
-                  />
-                </div>
+                {!isHome ? (
+                  <div className={classes.search}>
+                    <Autocomplete
+                      placeholder="Search…"
+                      onSelect={suggestion => {
+                        history.push(`/view/${suggestion._id}`);
+                      }}
+                      loadSuggestions={text => {
+                        let query = {
+                          [modelKey]: { $regex: event.target.value }
+                        };
+                        return searchModel(query);
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <></>
+                )}
               </AppBar>
               <main
                 className={hasPadding ? classes.hasPadding : classes.content}

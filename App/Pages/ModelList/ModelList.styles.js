@@ -1,6 +1,9 @@
 import { fade } from "@material-ui/core/styles/colorManipulator";
 export const styles = theme => ({
-  header: {},
+  header: {
+    position: "relative",
+    bottom: "40px"
+  },
   appBar: {
     paddingLeft: "16px",
     paddingRight: "16px",

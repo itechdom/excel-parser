@@ -34,7 +34,10 @@ export default function MedicationSelect(props) {
     setOpen(true);
   }
   return (
-    <form className={props.className} autoComplete="off">
+    <form
+      style={{ right: "6px", position: "relative" }}
+      autoComplete="off"
+    >
       <FormControl className={classes.formControl}>
         <InputLabel htmlFor="demo-controlled-open-select">
           Medication Type

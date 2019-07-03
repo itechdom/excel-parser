@@ -8,8 +8,8 @@ export const styles = theme => ({
     paddingLeft: "3px"
   },
   main: {
-    paddingLeft:"0px",
-    paddingRight:"0px"
+    paddingLeft: "0px",
+    paddingRight: "0px"
   },
   toolbar: {
     paddingRight: 24 // keep right padding when drawer closed
@@ -28,6 +28,7 @@ export const styles = theme => ({
       duration: theme.transitions.duration.leavingScreen
     })
   },
+  appBarNoSpace: { margin: 0 },
   appBarShift: {
     marginLeft: drawerWidth,
     // width: `calc(100% - ${drawerWidth}px)`,
@@ -106,7 +107,12 @@ export const styles = theme => ({
     [theme.breakpoints.up("sm")]: {
       marginLeft: theme.spacing.unit,
       width: "auto"
-    }
+    },
+    paddingRight: "16px",
+    paddingLeft: "16px"
+  },
+  searchNoSpace: {
+    bottom: "40px"
   },
   searchIcon: {
     width: theme.spacing.unit * 9,
