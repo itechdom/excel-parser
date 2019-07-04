@@ -60,9 +60,9 @@ const Guide = ({
         <TableBody>
           {Object.keys(data).map(column => {
             return (
-              <TableRow>
+              <TableRow className={classes.row}>
                 <TableCell>
-                  <span className={classes.key}>{column}</span>:
+                  <span className={classes.key}>{column}:</span>
                   <span className={classes.value}>{data[column]}</span>
                 </TableCell>
               </TableRow>
@@ -87,15 +87,23 @@ const Guide = ({
         <Typography variant="h5" gutterBottom>
           Dosing Reference Reports
         </Typography>
-        <Typography gutterBottom>
+        <Typography variant="subtitle1" gutterBottom>
           Geared towards outpatient settting and child psychiatry
         </Typography>
-        <Typography>Study Dosage:</Typography>
+        <Typography className={classes.section}>Study Dosage:</Typography>
         {StudyDosage}
-        <Typography>Refs:</Typography>
+        <Typography className={classes.section}>Refs:</Typography>
         {RefsComp}
-        <Typography>External References:</Typography>
-        {References}
+        <Typography className={classes.section}>
+          External References:
+        </Typography>
+        {Object.keys(references).map(key => {
+          return (
+            <div>
+              <a href={`${references[key]}`}>{key}</a>
+            </div>
+          );
+        })}
       </Paper>
     </MainWrapper>
   );

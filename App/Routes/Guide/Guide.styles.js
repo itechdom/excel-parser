@@ -7,8 +7,16 @@ export const styles = theme => ({
     paddingRight: "16px",
     paddingTop: "16px"
   },
+  section: {
+    fontWeight: "bold",
+    marginTop: "10px"
+  },
+  row: {
+    marginBottom: "5px"
+  },
   key: {
-    fontWeight: "bold"
+    fontWeight: "bold",
+    marginRight: "5px"
   },
   value: {}
 });

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import AppBar from "@material-ui/core/AppBar";
@@ -11,8 +10,8 @@ import { styles } from "./MainWrapper.styles";
 import { compose } from "recompose";
 import Container from "@material-ui/core/Container";
 import Autocomplete from "../_shared/Autocomplete/Autocomplete";
-import CheckCircle from "@material-ui/icons/CheckCircleOutline";
 import DoneOutline from "@material-ui/icons/DoneOutline";
+import HelpOutline from "@material-ui/icons/HelpOutline";
 import Button from "@material-ui/core/Button";
 
 let theme = createMuiTheme({
@@ -79,16 +78,22 @@ class MainWrapper extends React.Component {
                     <></>
                   )}
                   <Typography
-                    variant="title"
-                    color="inherit"
                     noWrap
+                    variant="h5"
                     className={classes.title}
                     align={"center"}
                   >
-                    <Typography variant="h5">
-                      <DoneOutline /> Psych Med
-                    </Typography>
+                    <DoneOutline /> Psych Med
                   </Typography>
+                  <Button
+                    variant="contained"
+                    size="small"
+                    href="#guide"
+                    className={classes.button}
+                  >
+                    <HelpOutline className={classes.buttonIcon} />
+                    Guide
+                  </Button>
                 </Toolbar>
                 {!isHome ? (
                   <div className={classes.search}>

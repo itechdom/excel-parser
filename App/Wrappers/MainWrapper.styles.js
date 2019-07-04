@@ -140,5 +140,11 @@ export const styles = theme => ({
         width: 200
       }
     }
+  },
+  buttonIcon: {
+    position: "relative",
+    right: "4px",
+    bottom: "1px",
+    width: "0.8em"
   }
 });
