@@ -104,7 +104,7 @@ class MainWrapper extends React.Component {
                       }}
                       loadSuggestions={text => {
                         let query = {
-                          [modelKey]: { $regex: event.target.value }
+                          title: { $regex: text }
                         };
                         return searchModel(query);
                       }}

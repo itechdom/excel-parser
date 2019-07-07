@@ -215,7 +215,7 @@ const ModelList = enhance(
                       }}
                       loadSuggestions={text => {
                         let query = {
-                          [modelKey]: { $regex: event.target.value }
+                          [modelKey]: { $regex: text }
                         };
                         return searchModel(query, type);
                       }}
