@@ -22,7 +22,7 @@
   "dependencies": {
     "apollo-boost": "^0.1.17",
     "axios": "^0.18.0",
-    "csv-parse": "^4.4.0",
+    "csv-parse": "^4.4.6",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "mobx": "^5.1.1",
