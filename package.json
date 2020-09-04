@@ -64,7 +64,7 @@
     "json-loader": "^0.5.4",
     "mobx-devtools-mst": "^0.9.18",
     "mobx-react-devtools": "^6.0.3",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
     "offline-plugin": "^5.0.6",
     "papaparse": "^4.6.3",
